@@ -5,7 +5,17 @@ const search = () => {
     const [data, SetData] = useState([])
     const [Loading, SetLoading] = useState(true)
     
+    useEffect(() => {
+        fetch("")
+            .then((response) => response.json())
+            .then((data) => { 
+
+
+            })
+            .catch((error) => { console.log("error", error) });
+    }, [])
     
+    if(Loading)return<h1>Loading....</h1>
 
     return (
         <>
