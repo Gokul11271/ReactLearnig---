@@ -1,6 +1,6 @@
-import react, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const search = () => {
+const Search = () => {
     const[input,SetInput]=useState("")
     const [data, SetData] = useState([])
     const [Loading, SetLoading] = useState(true)
@@ -9,8 +9,8 @@ const search = () => {
         fetch("https://dummyjson.com/recipes")
           .then((response) => response.json())
             .then((data) => {
-                SetData(data),
-                SetLoading(false)
+                SetData(data.recipes);
+                    SetLoading(false);
           })
           .catch((error) => {
             console.log("error", error);
@@ -32,14 +32,14 @@ const search = () => {
             SetInput(e.target.value);
           }}
         />
-        <p>this is the {SetData} </p>
 
         <div>
-          
-            {data.map((d) => <span key={d.id}>{d.title}</span>)}
-          
+          {data.map((d) => (
+             <span key={d.id}>{d.name}</span>
+
+          ))}
         </div>
       </>
     );
 }
-export default search;
+export default Search;
