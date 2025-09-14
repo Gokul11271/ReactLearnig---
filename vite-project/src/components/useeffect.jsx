@@ -4,7 +4,7 @@ const useeffect = () => {
   const [Food, SetFood] = UseState(null);
   const [Loading, SetLoading] = UseState(true);
 
-  UseEffect(() => {
+  useEffect(() => {
     fetch("https://dummyjson.com/recipes")
       .then((response) => response.json())
       .then((data) => {
